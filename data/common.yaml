@@ -1,0 +1,11 @@
+---
+apache::install_ensure: 'present'
+apache::install_name: 'apache2'
+apache::config_ensure: 'file'
+apache::config_path: '/etc/apache2/apache2.conf'
+apache::service_name: 'apache2'
+apache::service_ensure: 'running'
+apache::service_enable: true
+apache::vhosts_dir: '/etc/apache2/sites-available'
+apache::vhosts_owner: 'www-data'
+apache::vhosts_group: 'www-data'

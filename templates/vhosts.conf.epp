@@ -1,0 +1,10 @@
+<%# Virtual hosts Template -%>
+
+<VirtualHost *:<%= $port %>>
+    ServerName <%= $subdomain %>.<%= $facts[fqdn] %>
+    ServerAlias <%= $subdomain %>
+<%- if $admin =~ String[1] { -%>
+    ServerAdmin <%= $admin %>
+<%- } -%>
+    DocumentRoot <%= $docroot %>
+</VirtualHost>

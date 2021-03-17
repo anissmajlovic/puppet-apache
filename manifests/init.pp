@@ -4,12 +4,19 @@
 #
 # @example
 #   include apache
+#
+# @example
+# apache::vhosts { 'namevar':
+#   port      => INT,
+#   subdomain => STR,
+#   admin     => STR,
+#   docroot   => STR,
 class apache (
   String $install_name,
   String $install_ensure,
   String $config_ensure,
   String $config_path,
-  Enum["running","stopped"] $service_ensure,
+  Enum['Running','Stopped'] $service_ensure,
   String $service_name,
   Boolean $service_enable,
   String $vhosts_dir,
@@ -19,6 +26,19 @@ class apache (
   contain apache::install
   contain apache::config
   contain apache::service
+
+  apache::vhosts { 'puppet-project':
+    port      => 80,
+    subdomain => 'puppetproject',
+    admin     => 'admin@localhost',
+    docroot   => '/var/www/html/puppetproject'
+  }
+  apache::vhosts { 'awesome-project':
+    port      => 80,
+    subdomain => 'awesomeproject',
+    admin     => '',
+    docroot   => '/var/www/html/awesomeproject'
+  }
 
   Class['::apache::install']
   -> Class['::apache::config']

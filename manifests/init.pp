@@ -16,7 +16,7 @@ class apache (
   String $install_ensure,
   String $config_ensure,
   String $config_path,
-  Enum['Running','Stopped'] $service_ensure,
+  Enum['running', 'stopped'] $service_ensure,
   String $service_name,
   Boolean $service_enable,
   String $vhosts_dir,

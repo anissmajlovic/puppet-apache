@@ -1,0 +1,10 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Sets the hostname of our node",
+  "parameters": {
+    "hostname": {
+      "description": "The desired hostname"
+    }
+  }
+}
